@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-purple: #35273A; 
+  --primary-orange: #FFB770;
+  --secondary-orange: #FFCFA1;
+}
+
+html, body {
+  margin: 0;
+  margin-top:0;
+}
+
+@font-face {
+  font-family: 'Nerko One';
+  src: url('/assets/fonts/Nerko_One/NerkoOne-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Mulish';
+  src: url('/assets/fonts/Mulish/Mulish-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
