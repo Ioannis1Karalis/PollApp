@@ -9,7 +9,7 @@
 
 .hero-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     max-width: 1200px;
     width: 100%;
@@ -32,7 +32,7 @@
         
     }
 
-    > h1 {
+    >h1 {
         color: var(--primary-orange);
         font-size: 100px;
         font-family: 'Nerko One', sans-serif;
@@ -42,7 +42,7 @@
         margin-bottom: 25px;
     }
 
-    > p {
+    >p {
         color: #FFFFFF;
         font-size: 20px;
         font-family: 'Mulish', sans-serif;
@@ -55,7 +55,7 @@
 
 .btn-primary {
     background-color: var(--secondary-orange);
-    color: #333; 
+    color: #333;
     font-family: 'Mulish', sans-serif;
     font-size: 18px;
     font-weight: 700;
@@ -63,15 +63,92 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    transition: all 0.3s ease-in-out;
+
+    .btn-icon {
+        width: 0;
+        opacity: 0;
+        height: 20px;
+        transition: all 0.3s ease-in-out;
+        overflow: hidden;
+    }
 
     &:hover {
-        background-color: #e6a545;
+        background-color: var(--primary-orange); 
+        padding-right: 20px; 
+        gap: 10px;
+
+        .btn-icon {
+            width: 20px;
+            opacity: 1;
+        }
     }
 }
 
-.hero-image {
-    width: 350px;   /* Größe des Handys anpassen */
+.hero-image-wrapper {
+    position: relative;
+    width: 350px;
     max-width: 100%;
-    margin-top: 150px;      
+    
+    .hero-phone {
+        width: 100%;
+        display: block;
+        position: relative;
+        z-index: 1;
+    }
+
+    .floating-icon {
+        position: absolute;
+        transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); 
+    }
+
+    .icon-bubble {
+        top: 25%;
+        left: 17%;
+        width: 90px;
+        z-index: 2;
+    }
+
+    .icon-question {
+        top: 2%;
+        right: 10%;
+        width: 60px;
+        z-index: 2;
+        transform: rotate(15deg)
+    }
+
+    .icon-star {
+        bottom: -1%;
+        left: 11%;
+        width: 70px;
+    }
+
+    .icon-check {
+        bottom: 10%;
+        right: 15%; 
+        width: 60px;
+    }
+    
+    &:hover {
+        .icon-star, .icon-check {
+            z-index: 6;
+        }
+        .icon-bubble {
+            transform: translate(-50px, -20px) scale(1.2);
+            width: 120px;
+        }
+        .icon-question {
+            transform: translate(-7px, -10px) scale(1.15) rotate(0deg);
+            z-index: 6;
+        }
+        .icon-star {
+            transform: translate(-10px, 10px) scale(1.2);
+        }
+        .icon-check {
+            transform: translate(40px, -10px) scale(1.3);
+        }
+    }
 }
