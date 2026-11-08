@@ -1,0 +1,146 @@
+.dashboard-section {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 60px 230px;
+  color: #FFFFFF;
+  font-family: 'Mulish', sans-serif;
+
+  .section-title {
+    color: var(--primary-orange, #F4A261);
+    font-family: 'Nerko One', sans-serif;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 60px;
+    font-weight: 400;
+  }
+
+  .subsection-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  /* Grid für die 3 weißen Karten */
+  .cards-grid {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
+    margin-bottom: 60px;
+
+    .survey-card {
+      background-color: #FFFFFF;
+      width: 320px;
+      height: 240px;
+      padding: 24px;
+      border-radius: 12px 60px 12px 12px; 
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      color: #333333;
+
+      .category {
+        font-size: 14px;
+        color: #6b6b6b;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+
+      .card-title {
+        font-size: 26px;
+        font-weight: 700;
+        margin: 0 0 24px 0;
+        line-height: 1.3;
+      }
+    }
+  }
+
+  /* Gemeinsamer Tag für Karten und Liste */
+  .tag {
+    background-color: var(--secondary-orange, #FCD5A1);
+    color: #333;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 4px;
+    margin-top: auto; /* Drückt den Tag in der Karte ganz nach unten */
+  }
+
+  .list-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    .toggles {
+      display: flex;
+      gap: 10px;
+
+      .toggle-btn {
+        background-color: #FEE9D4;
+        border: none;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-family: 'Mulish', sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        cursor: pointer;
+        color: #333;
+
+        &.active {
+          background-color: var(--primary-orange, #F4A261);
+        }
+      }
+    }
+
+    .sort-dropdown {
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      .arrow {
+        font-size: 10px;
+      }
+    }
+  }
+
+  /* Die kompakte Liste darunter */
+  .survey-list {
+    display: flex;
+    flex-wrap: wrap; /* Erlaubt zweispaltiges Layout wie im Design */
+    gap: 15px;
+
+    .list-item {
+      background-color: rgba(255, 255, 255, 0.1); /* Dunkles, leicht transparentes Violett */
+      width: calc(50% - 10px); /* 2 Spalten Layout */
+      padding: 16px 20px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .item-info {
+        display: flex;
+        flex-direction: column;
+
+        .category {
+          font-size: 12px;
+          color: var(--primary-orange, #F4A261);
+          margin-bottom: 4px;
+        }
+
+        .item-title {
+          font-size: 16px;
+          margin: 0;
+          font-weight: 700;
+        }
+      }
+
+      .tag {
+        margin-top: 0; /* Überschreibt das margin-top von der Karte */
+      }
+    }
+  }
+}
