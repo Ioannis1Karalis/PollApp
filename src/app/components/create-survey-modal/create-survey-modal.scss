@@ -1,0 +1,285 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #2B2132; /* Dunklerer Hintergrund wie im Design */
+  width: 960px;
+  max-width: 95vw;
+  max-height: 92vh;
+  overflow-y: auto;
+  border-radius: 12px 70px 12px 12px; /* Starke Rundung oben rechts */
+  padding: 40px 50px;
+  color: white;
+  font-family: 'Mulish', sans-serif;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+
+  .title-area {
+    .tag-draft {
+      display: inline-block;
+      background-color: #FCD5A1;
+      color: #2B2132;
+      padding: 4px 14px;
+      border-radius: 0px 14px 0px 0px; 
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-family: 'Nerko One', sans-serif;
+      color: #F4A261;
+      font-size: 46px;
+      margin: 6px 0 0 0;
+      font-weight: 400;
+      line-height: 1;
+    }
+  }
+
+  .btn-cancel {
+    background-color: #6E524B; /* Warmer Braunton aus der Vorlage */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 25px;
+
+    &:hover {
+      background-color: #82625A;
+    }
+  }
+}
+
+.form-container {
+  background-color: #3B3042; /* Abgesetztes Violett-Grau aus der Vorlage */
+  padding: 35px 40px;
+  border-radius: 12px 55px 12px 12px; /* Ebenfalls oben rechts stark abgerundet! */
+  box-sizing: border-box;
+
+  label {
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+
+    span {
+      font-weight: 400;
+      color: #C2BCC6;
+    }
+
+    .required-asterisk {
+      color: #F4A261;
+    }
+  }
+
+  input[type="text"],
+  input[type="date"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px 14px;
+    /* Typische abgerundete Ecke oben rechts bei allen Inputs */
+    border-radius: 6px 18px 6px 6px; 
+    border: 2px solid transparent;
+    background-color: #FFFFFF;
+    color: #333333;
+    font-family: 'Mulish', sans-serif;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: none;
+
+    &.invalid {
+      border-color: #FF5252;
+    }
+  }
+
+  textarea {
+    resize: none;
+    height: 98px;
+  }
+
+  .icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 8px;
+    color: #FFFFFF;
+    opacity: 0.8;
+    padding: 4px;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .input-with-icon,
+  .textarea-with-icon {
+    display: flex;
+    align-items: center;
+  }
+
+  .textarea-with-icon {
+    align-items: flex-start;
+  }
+
+  /* Obere Sektion (2 Spalten: Links Name/Datum/Kategorie, Rechts Beschreibung) */
+  .form-grid-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 35px;
+
+    .left-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .date-category-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+    }
+  }
+}
+
+/* Fragen Bereich: 2-Spalten-Grid! */
+.questions-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Macht 2 Fragen nebeneinander */
+  gap: 35px 40px; /* 35px Abstand nach unten, 40px nach rechts */
+  align-items: start;
+
+  .question-block {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .question-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      label {
+        margin-bottom: 0;
+      }
+    }
+
+    .answers-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+
+      label {
+        margin-bottom: 0;
+      }
+
+      .checkbox-label {
+        font-weight: 400;
+        font-size: 12px;
+        color: #E0DCE3;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+      }
+    }
+
+    .answers-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .answer-row {
+        display: flex;
+        align-items: center;
+
+        .answer-letter {
+          font-weight: 700;
+          width: 24px;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .add-link {
+      background: none;
+      border: none;
+      color: white;
+      text-decoration: underline;
+      cursor: pointer;
+      align-self: flex-start;
+      margin-top: 4px;
+      margin-left: 24px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+  }
+
+  /* Der Button wandert im Grid automatisch mit! */
+  .btn-add-question {
+    //grid-column: 1 / -1; /* NEU: Zwingt den Button immer in eine neue Zeile ganz nach links */
+    background-color: #6E524B; /* Gleicher Braunton wie Cancel */
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    justify-self: start;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &:hover {
+      background-color: #82625A;
+    }
+  }
+}
+
+/* Footer außerhalb des grauen Kastens */
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 25px;
+
+  .btn-publish {
+    background-color: #FCD5A1;
+    color: #2B2132;
+    border: none;
+    padding: 10px 26px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #F4A261;
+    }
+  }
+}

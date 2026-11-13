@@ -20,7 +20,6 @@
     margin-bottom: 20px;
   }
 
-  /* Grid für die 3 weißen Karten */
   .cards-grid {
     display: flex;
     justify-content: space-evenly;
@@ -54,7 +53,6 @@
     }
   }
 
-  /* Gemeinsamer Tag für Karten und Liste */
   .tag {
     background-color: var(--secondary-orange, #FCD5A1);
     color: #333;
@@ -62,7 +60,7 @@
     font-weight: 700;
     padding: 4px 12px;
     border-radius: 4px;
-    margin-top: auto; /* Drückt den Tag in der Karte ganz nach unten */
+    margin-top: auto;
   }
 
   .list-controls {
@@ -106,15 +104,14 @@
     }
   }
 
-  /* Die kompakte Liste darunter */
   .survey-list {
     display: flex;
-    flex-wrap: wrap; /* Erlaubt zweispaltiges Layout wie im Design */
+    flex-wrap: wrap; 
     gap: 15px;
 
     .list-item {
-      background-color: rgba(255, 255, 255, 0.1); /* Dunkles, leicht transparentes Violett */
-      width: calc(50% - 10px); /* 2 Spalten Layout */
+      background-color: rgba(255, 255, 255, 0.1); 
+      width: calc(50% - 10px); 
       padding: 16px 20px;
       border-radius: 12px;
       display: flex;
@@ -139,7 +136,7 @@
       }
 
       .tag {
-        margin-top: 0; /* Überschreibt das margin-top von der Karte */
+        margin-top: 0; 
       }
     }
   }

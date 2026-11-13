@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Header } from '../layout/header/header';
-import { SurveysSection } from '../surveys-section/surveys-section';
+import { SurveysSection } from '../components/surveys-section/surveys-section';
 
 @Component({
   imports: [Header, SurveysSection],

@@ -1,0 +1,101 @@
+<div class="modal-overlay" (click)="closeModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    
+    <div class="modal-header">
+      <div class="title-area">
+        <span class="tag-draft">Draft</span>
+        <h2>Create new survey</h2>
+      </div>
+      <button class="btn-cancel" (click)="closeModal()">Cancel ✕</button>
+    </div>
+
+    <form [formGroup]="surveyForm" class="form-container">
+      
+      <div class="form-grid-top">
+        <div class="left-col">
+          <div class="form-group">
+            <label>Survey name <span class="required-asterisk">*</span></label>
+            <div class="input-with-icon">
+              <input type="text" formControlName="surveyName" [class.invalid]="surveyForm.get('surveyName')?.invalid && surveyForm.get('surveyName')?.touched">
+              <button type="button" class="icon-btn">
+                <img src="assets/img/trash.png" alt="trash icon">
+              </button>
+            </div>
+          </div>
+          
+          <div class="date-category-row">
+            <div class="form-group">
+              <label>Set end date <span>(optional)</span></label>
+              <div class="input-with-icon">
+                <input type="date" formControlName="endDate">
+                <button type="button" class="icon-btn">
+                    <img src="assets/img/trash.png" alt="trash icon">
+                </button>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label>Choose category <span class="required-asterisk">*</span></label>
+              <select formControlName="category" [class.invalid]="surveyForm.get('category')?.invalid && surveyForm.get('category')?.touched">
+                <option value="" disabled selected>Select...</option>
+                <option *ngFor="let cat of categories" [value]="cat">{{cat}}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <div class="right-col">
+          <div class="form-group">
+            <label>Describing text <span>(optional)</span></label>
+            <div class="textarea-with-icon">
+              <textarea formControlName="description" rows="4"></textarea>
+              <button type="button" class="icon-btn">
+                <img src="assets/img/trash.png" alt="trash icon">
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="questions-container" formArrayName="questions">
+        <div class="question-block" *ngFor="let question of questions.controls; let qIndex = index" [formGroupName]="qIndex">
+          
+          <div class="question-header">
+            <label>{{ qIndex + 1 }}. Question <span class="required-asterisk">*</span></label>
+            <button type="button" class="icon-btn" (click)="removeQuestion(qIndex)">
+                <img src="assets/img/trash.png" alt="trash icon">
+            </button>
+          </div>
+          <input type="text" formControlName="questionText" placeholder="Which date would work best for you?" [class.invalid]="question.get('questionText')?.invalid && question.get('questionText')?.touched">
+
+          <div class="answers-header">
+            <label>Answers <span class="required-asterisk">*</span></label>
+            <label class="checkbox-label">
+              <input type="checkbox" formControlName="allowMultiple"> Allow multiple answers.
+            </label>
+          </div>
+
+          <div class="answers-container" formArrayName="answers">
+            <div class="answer-row" *ngFor="let answer of getAnswers(qIndex).controls; let aIndex = index" [formGroupName]="aIndex">
+              <span class="answer-letter">{{ String.fromCharCode(65 + aIndex) }}.</span>
+              <input type="text" formControlName="answerText" [class.invalid]="answer.get('answerText')?.invalid && answer.get('answerText')?.touched">
+              <button type="button" class="icon-btn" (click)="removeAnswer(qIndex, aIndex)">
+                <img src="assets/img/trash.png" alt="trash icon">
+              </button>
+            </div>
+          </div>
+
+          <button type="button" class="add-link" (click)="addAnswer(qIndex)">Add answer <img src="./assets/img/add-circle-white.png" alt="Add Icon"></button>
+        </div>
+
+        <button type="button" class="btn-add-question" (click)="addQuestion()">Add next question <img src="./assets/img/add-circle-white.png" alt="Add Icon"></button>
+      </div>
+
+    </form>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-publish" (click)="publish()">Publish</button>
+      </div>
+
+  </div>
+</div>

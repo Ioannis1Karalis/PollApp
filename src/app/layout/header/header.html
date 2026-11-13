@@ -5,7 +5,7 @@
             
             <h1>Collect Feedback, <br> Unlock Ideas</h1>
             <p>Create and share surveys in minutes – from team events to workplace culture. Collect opinions, engage your audience, and turn feedback into action.</p>
-            <button class="btn-primary">
+            <button class="btn-primary" (click)="isModalOpen = true">
                 <span>New survey</span>
                 <img src="./assets/img/add-circle.png" alt="Add Icon" class="btn-icon">
             </button>
@@ -22,3 +22,5 @@
         </div>
     </div>
 </div>
+
+<app-create-survey-modal *ngIf="isModalOpen" (close)="isModalOpen = false"></app-create-survey-modal>
